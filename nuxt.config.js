@@ -3,9 +3,11 @@ import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
 export default defineNuxtConfig({
   target: 'static',
+
   generate: {
     fallback: true
   },
+
   // ? The env/runtimeConfig Property: https://v3.nuxtjs.org/guide/features/runtime-config/
   runtimeConfig: {
     // The private keys which are only available within server-side. DON’T PUBLISH SECRETS IN CLEAR TEXT TO GIT. Use environment variables instead.
@@ -19,6 +21,7 @@ export default defineNuxtConfig({
       lang: SITE_INFO.sitelang || 'en-US'
     }
   },
+
   /*
    ** Headers of the page
    */
@@ -60,28 +63,34 @@ export default defineNuxtConfig({
     ],
     __dangerouslyDisableSanitizers: ['noscript']
   },
+
   /*
    ** Customize the progress-bar color
    */
   loading: { color: '#526488' },
+
   /*
    ** Global CSS
    */
   css: ['@/assets/css/main.pcss'],
+
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [],
+
   /*
    ** Nuxt.js modules
    */
   modules: ['@nuxt/content', '@vite-pwa/nuxt', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss', 'nuxt-svgo' ],
+
   /*
    ** Build configuration
    */
   build: {
     extractCSS: true,
   },
+
   /*
    ** Custom additions configuration
    */
@@ -95,11 +104,13 @@ export default defineNuxtConfig({
       }
     }
   },
+
   tailwindcss: {
     viewer: true,
     cssPath: '~/assets/css/main.pcss',
     exposeConfig: false // enables `import { theme } from '#tailwind.config'`
   },
+
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
@@ -111,6 +122,7 @@ export default defineNuxtConfig({
       }
     }
   },
+
   pwa: {
     manifest: {
       name: SITE_INFO.sitename || process.env.npm_package_name || '',
@@ -146,5 +158,7 @@ export default defineNuxtConfig({
       ogHost: process.env.URL,
       ogImage: '/preview.jpg'
     }
-  }
+  },
+
+  compatibilityDate: '2025-02-08'
 });
